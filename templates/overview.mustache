@@ -1,0 +1,23 @@
+
+<div class="reportSection tableContainer">
+    <h4>Benthic Diversity</h4>
+    <table>
+      <thead>
+        <tr>
+          <td>Diversity of Benthic Habitat</td>
+          <td>Percent within Sketched Area</td>
+          <td>Percent of Total Habitats in EEZ</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#benthic_diversity}}
+          <tr>
+            <td>{{CAT}}</td>
+            <td>{{AREA_KM}}</td>
+            <td>{{AREA_PERC}}</td>
+          </tr>
+        {{/benthic_diversity}}
+    </table>
+ </div>
+
+
