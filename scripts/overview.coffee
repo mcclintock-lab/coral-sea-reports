@@ -13,7 +13,7 @@ class OverviewTab extends ReportTab
 
     # create random data for visualization
     benthic_diversity = @recordSet('BenthicDiversityToolbox', 'BenthicDiversity').toArray()
-
+    console.log(benthic_diversity)
     isCollection = @model.isCollection()
 
     # setup context object with data and render the template from it
