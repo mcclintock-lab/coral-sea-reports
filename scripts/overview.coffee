@@ -7,15 +7,17 @@ class OverviewTab extends ReportTab
   className: 'overview'
   template: templates.overview
   dependencies:[ 
-    'BenthicDiversityToolbox'
+    'BenthicDiversityToolbox', 'FishingEffort'
   ]
   render: () ->
 
     # create random data for visualization
     benthic_diversity = @recordSet('BenthicDiversityToolbox', 'BenthicDiversity').toArray()
-    console.log(benthic_diversity)
+    fishing_effort = @recordSet('FishingEffort', 'FishingEffort').toArray()
+    
     isCollection = @model.isCollection()
-
+    fishing_effort_perc = fishing_effort[0]
+    console.log("fishing_effort_perc")
     # setup context object with data and render the template from it
     context =
       sketch: @model.forTemplate()
@@ -24,6 +26,7 @@ class OverviewTab extends ReportTab
       admin: @project.isAdmin window.user
       isCollection: isCollection
       benthic_diversity: benthic_diversity
+      fishing_effort_perc: fishing_effort_perc
     
     @$el.html @template.render(context, templates)
 
