@@ -27,4 +27,81 @@
     </p>
  </div>
 
+  <div class="reportSection">
+    <h4>Diversity of Captures</h4>
+    <p>
+      The average deviation from the mean is <strong>{{doc}}%</strong>.
+    </p>
+ </div>
 
+  <div class="reportSection">
+    <h4>Volume of Captures</h4>
+    <p>
+      The percent of total captures is <strong>{{volume_of_captures.VOC}}%</strong>.
+    </p>
+ </div>
+
+   <div class="reportSection tableContainer">
+    <h4>Seamounts</h4>
+    <table>
+      <thead>
+        <tr>
+          <td>Type</td>
+          <td>Depth</td>
+          <td>Number of Structures</td>
+          <td>% of Total Area</td>
+        </tr>
+      </thead>
+      <tbody>
+          {{#seamounts}}
+            <tr>
+              <td>{{STYPE}}</td>
+              <td>{{SDEPTH}}</td>
+              <td>{{NUM_STR}}</td>
+              <td>{{PERC_TOT_AREA}}</td>
+            </tr>
+          {{/seamounts}}
+    </table>
+  </div>
+
+   <div class="reportSection tableContainer">
+    <h4>Reefs</h4>
+    <table>
+      <thead>
+        <tr>
+          <td>Number of Structures</td>
+          <td>% of Total Area</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#reefs}}
+          <tr>
+            <td>{{NUM_REEFS}}</td>
+            <td>{{REEF_PERC}}</td>
+          </tr>
+        {{/reefs}}
+    </table>
+  </div>
+
+    <div class="reportSection tableContainer">
+    <h4>Seabirds</h4>
+    <table>
+      <thead>
+        <tr>
+          <td>Site</td>
+          <td>Number of Reproductive Couples</td>
+          <td>% of Seabirds on Site that Led to Designation of IBA</td>
+          <td>Other %</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#seabirds}}
+          <tr>
+            <td>{{Site}}</td>
+            <td>{{NUM_CPLS}}</td>
+            <td>{{PERC_IBA}}</td>
+            <td>{{PERC_OTH}}</td>
+          </tr>
+        {{/seabirds}}
+    </table>
+  </div>
