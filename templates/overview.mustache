@@ -46,21 +46,69 @@
     <table>
       <thead>
         <tr>
-          <td>Type</td>
-          <td>Depth</td>
-          <td>Number of Structures</td>
-          <td>% of Total Area</td>
+          <th>Type</th>
+          <th>Depth</th>
+          <th>Number of Structures</th>
+          <th>Total</th>
+          <th>% of Structures</th>
+          <th>% of Area</th>
+          <th>% of Total Area</th>
         </tr>
       </thead>
+
       <tbody>
-          {{#seamounts}}
-            <tr>
-              <td>{{STYPE}}</td>
-              <td>{{SDEPTH}}</td>
-              <td>{{NUM_STR}}</td>
-              <td>{{PERC_TOT_AREA}}</td>
-            </tr>
-          {{/seamounts}}
+        {{#seamount}}
+          <tr>
+            {{#showtype}}
+              <td rowspan="3">{{STYPE}}</td>
+            {{/showtype}}
+            <td>{{SDEPTH}}</td>
+            <td>{{NUM_STR}}</td>
+            {{#showtype}}
+              <td rowspan="3">{{TYPE_TOT}}</td>
+            {{/showtype}}
+            <td>{{PERC_STR}}</td>
+            <td>{{PERC_AREA}}</td>
+            {{#showtype}}
+              <td rowspan="3">{{PERC_TOT}}</td>
+            {{/showtype}}
+          </tr>
+        {{/seamount}}
+
+        {{#knoll}}
+            {{#showtype}}
+              <td rowspan="3">{{STYPE}}</td>
+            {{/showtype}}
+            <td>{{SDEPTH}}</td>
+            <td>{{NUM_STR}}</td>
+            {{#showtype}}
+              <td rowspan="3">{{TYPE_TOT}}</td>
+            {{/showtype}}
+            <td>{{PERC_STR}}</td>
+            <td>{{PERC_AREA}}</td>
+            {{#showtype}}
+              <td rowspan="3">{{PERC_TOT}}</td>
+            {{/showtype}}
+          </tr>
+        {{/knoll}}
+        {{#hill}}
+            {{#showtype}}
+              <td rowspan="3">{{STYPE}}</td>
+            {{/showtype}}
+            <td>{{SDEPTH}}</td>
+            <td>{{NUM_STR}}</td>
+            {{#showtype}}
+              <td rowspan="3">{{TYPE_TOT}}</td>
+            {{/showtype}}
+            <td>{{PERC_STR}}</td>
+            <td>{{PERC_AREA}}</td>
+            {{#showtype}}
+              <td rowspan="3">{{PERC_TOT}}</td>
+            {{/showtype}}
+          </tr>
+        {{/hill}}
+      </tbody>
+
     </table>
   </div>
 

@@ -23,6 +23,9 @@ class OverviewTab extends ReportTab
     reefs = @recordSet('BenthicDiversityToolbox', 'Reefs').toArray()
     seabirds = @recordSet('BenthicDiversityToolbox', 'Seabirds').toArray()
     seamounts = @recordSet('BenthicDiversityToolbox', 'Seamounts').toArray()
+    seamount = @getType("Seamount", seamounts)
+    hill = @getType("Hill", seamounts)
+    knoll = @getType("Knoll", seamounts)
 
     isCollection = @model.isCollection()
 
@@ -39,11 +42,24 @@ class OverviewTab extends ReportTab
       volume_of_captures: volume_of_captures
       reefs: reefs
       seabirds: seabirds
-      seamounts: seamounts
+      seamount:seamount
+      hill:hill
+      knoll:knoll
     
     @$el.html @template.render(context, templates)
 
 
 
+  getType: (typename, seamounts) =>  
+    rows = []
+    for sm in seamounts
+      if sm.STYPE == typename
+        if sm.SDEPTH == "epibathyal"
+          sm.showtype = true
+        else
+          sm.showtype = false
+        rows.push(sm)
+
+    return rows
 
 module.exports = OverviewTab
