@@ -13,6 +13,7 @@ class OverviewTab extends ReportTab
 
     # create random data for visualization
     benthic_diversity = @recordSet('BenthicDiversityToolbox', 'BenthicDiversity').toArray()
+    benthic_diversity = _.sortBy benthic_diversity, (bd) -> bd.SORT
     fishing_effort_perc = @recordSet('FishingEffort', 'FishingEffort').toArray()[0]
     diversity_of_captures = @recordSet('BenthicDiversityToolbox', 'DiversityOfCaptures').toArray()[0]
     
@@ -47,6 +48,7 @@ class OverviewTab extends ReportTab
       knoll:knoll
     
     @$el.html @template.render(context, templates)
+
 
 
 
